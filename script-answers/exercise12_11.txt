@@ -1,0 +1,6 @@
+docker exec -it eca bash
+redis-cli
+KEYS *
+GET added_todos
+SET added_todos 9001
+DELETE added_todos
