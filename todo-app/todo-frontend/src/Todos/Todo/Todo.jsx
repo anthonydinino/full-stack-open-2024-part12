@@ -1,4 +1,4 @@
-const Todo = (todo, deleteTodo, completeTodo) => {
+const Todo = ({ todo, deleteTodo, completeTodo }) => {
   const onClickDelete = (todo) => () => {
     deleteTodo(todo);
   };

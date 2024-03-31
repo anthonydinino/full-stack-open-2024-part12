@@ -38,16 +38,14 @@ singleRouter.delete("/", async (req, res) => {
 
 /* GET todo. */
 singleRouter.get("/", async (req, res) => {
-  const todo = await Todo.findById(req.params.id);
-  res.send(todo);
+  res.send(req.todo);
 });
 
 /* PUT todo. */
 singleRouter.put("/", async (req, res) => {
-  const id = req.params.id;
   const todo = await Todo.findOneAndReplace(
-    { _id: id },
-    { id: id, ...req.body },
+    { _id: req.todo._id },
+    { id: req.todo._id, ...req.body },
     { returnDocument: "after" }
   );
   res.send(todo);
